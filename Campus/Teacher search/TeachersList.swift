@@ -32,7 +32,7 @@ struct TeachersList: View {
                                 .font(.subheadline)
                         }
                         
-                        let link = teacher.Profile!
+                        let link = teacher.Profile ?? ""
                         Link(destination: URL(string: link)!) {
                             Text(link)
                         }
