@@ -13,20 +13,22 @@ struct Paging: Codable {
     let LastItemOnPage: Int?
 }
 
-struct Subdivision: Codable {
+struct Subdivision: Codable, Identifiable {
     let Url: String?
     let Logo: String?
     let Address: String?
     let Name: String?
     let Id: Int
-    //TODO: make struct Identifiable
-    //let id = Id
+    
+    var id: Int { Id }
 }
 
-struct Position: Codable {
+struct Position: Codable, Identifiable {
     let Name: String?
     let Subdivision: Subdivision?
     let Employment: Int?
+    
+    var id: Int { Subdivision!.id }
 }
 
 //TODO: find out what it is
@@ -35,7 +37,7 @@ struct Field: Codable {}
 //TODO: find out what it is
 struct Item: Codable {}
 
-struct Teacher: Codable {
+struct Teacher: Codable, Identifiable {
     let Positions: [Position]?
     let Fields: Field?
     let Status: String?
@@ -45,15 +47,14 @@ struct Teacher: Codable {
     let AcademicStatus: String?
     let ContactRecords: String? //may not be String
     let IsConfirmed: Bool?
-    let UserIdentifier: String?
+    let UserIdentifier: String
     let FullName: String?
     let Photo: String?
     let Credo: String?
     let Profile: String?
-    let Id: Int
+    let Id: Int?
     
-    //TODO: make struct Identifiable
-    //let id = Id
+    var id: String { UserIdentifier } //use UserIdentifier instead of id because id is sometimes 0
 }
 
 struct TeacherData: Codable {
@@ -64,8 +65,12 @@ struct TeacherData: Codable {
 class TeachersApi {
     func getTeachers(name: String, completion: @escaping (TeacherData) -> ()) {
         let escapedName = name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let pageNumber = 1
+        let pageSize = 10 + 1
         
-        guard let url = URL(string: "https://api.campus.kpi.ua/Intellect/Find?value=\(escapedName!)pageNumber=1&pageSize=10") else { return }
+        guard let url = URL(
+            string: "https://api.campus.kpi.ua/Intellect/Find?value=\(escapedName!)&pageNumber=\(pageNumber)&pageSize=\(pageSize)"
+        ) else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, _ in
             let teacherData = try! JSONDecoder().decode(TeacherData.self, from: data!)

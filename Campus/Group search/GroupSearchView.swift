@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct GroupSearchView: View {
-    @State var groupName = "ІП-04"
+    @State var groupName = ""
     
     var body: some View {
         NavigationView {

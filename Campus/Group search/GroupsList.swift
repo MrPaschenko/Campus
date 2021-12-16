@@ -18,7 +18,7 @@ extension String {
 }
 
 struct GroupsList: View {
-    @State var groupName = "ІП-04"
+    @State var groupName = ""
     @State var groups: [Group] = []
     
     var body: some View {
@@ -53,7 +53,7 @@ struct GroupsList: View {
                         let curatorLink = group.curator?.profile ?? ""
                         if (curatorLink != "") {
                             Link(destination: URL(string: curatorLink)!) {
-                                Text((group.curator?.profile)!)
+                                Text(curatorLink)
                             }
                         }
                     }
