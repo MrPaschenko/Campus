@@ -14,14 +14,14 @@ struct TeacherSearchView: View {
                 .background(.bar)
                 .cornerRadius(15)
                 
-//                NavigationLink(destination: GroupsList(groupName: groupName)) {
-                    Text("Search")
-//                }
-                .padding()
-                .frame(width: 200)
-                .background(.blue)
-                .foregroundColor(.white)
-                .clipShape(Capsule())
+                //NavigationLink(destination: GroupsList(groupName: groupName)) {
+                Text("Search")
+                //}
+                    .padding()
+                    .frame(width: 200)
+                    .background(.blue)
+                    .foregroundColor(.white)
+                    .clipShape(Capsule())
             }
             .navigationTitle("Teacher search")
         }
