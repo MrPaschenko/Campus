@@ -6,7 +6,7 @@ struct ContentView: View {
             GroupSearchView()
                 .tabItem {
                     Image(systemName: "person.3.sequence")
-                    Text("Group search")
+                    Text("Group curator search")
                 }
             
             TeacherSearchView()
