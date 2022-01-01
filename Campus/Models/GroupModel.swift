@@ -7,7 +7,6 @@ struct Curator: Codable, Identifiable {
     var credo: String?
     var profile: String?
     var id: Int
-
 }
 
 struct Cathedra: Codable, Identifiable {

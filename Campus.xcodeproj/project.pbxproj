@@ -47,7 +47,6 @@
 		A23E8DE0276BE10500D31BBD /* Teacher search */ = {
 			isa = PBXGroup;
 			children = (
-				A23E8DE1276BE41F00D31BBD /* TeacherModel.swift */,
 				A23E8DE3276BE9B200D31BBD /* TeacherSearchView.swift */,
 				A23E8DE5276BEAA100D31BBD /* TeachersList.swift */,
 			);
@@ -75,6 +74,7 @@
 			children = (
 				A254124127676A890051B6B2 /* CampusApp.swift */,
 				A254124327676A8A0051B6B2 /* ContentView.swift */,
+				A254D5D52780BE2F00435543 /* Models */,
 				A2C4D117276902600014FDEC /* Group search */,
 				A23E8DE0276BE10500D31BBD /* Teacher search */,
 				A254124527676A8B0051B6B2 /* Assets.xcassets */,
@@ -91,10 +91,18 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		A2C4D117276902600014FDEC /* Group search */ = {
+		A254D5D52780BE2F00435543 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A2C4D1132768EE3A0014FDEC /* GroupModel.swift */,
+				A23E8DE1276BE41F00D31BBD /* TeacherModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A2C4D117276902600014FDEC /* Group search */ = {
+			isa = PBXGroup;
+			children = (
 				A254124F276777740051B6B2 /* GroupSearchView.swift */,
 				A2C4D1152768F85B0014FDEC /* GroupsList.swift */,
 			);
